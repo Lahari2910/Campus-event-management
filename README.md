@@ -20,9 +20,12 @@ They are able to register for events they are interested in.
 They can also check-in on the day of the event to mark their attendance.
 
 During development, there were several challenges that needed to be solved.
-The database connection initially caused issues, so a separate db.js file was created to handle and organize connection details,
-Admin and student routes were mixing up, so they were separated into /admin/... and /student/... for better structure,
-Storing plain-text passwords was unsafe, so bcryptjs was added to hash passwords before saving them to the database,
+The database connection initially caused issues, so a separate db.js file was created to handle and organize connection details
+
+Admin and student routes were mixing up, so they were separated into /admin/... and /student/... for better structure
+
+Storing plain-text passwords was unsafe, so bcryptjs was added to hash passwords before saving them to the database
+
 Logging in again for every action was inconvenient, so express-session was implemented to maintain sessions until logout.
 
 This project takes the traditional manual process of event management and turns it into a secure, digital, and user-friendly system. In the future, it can be extended with features like email notifications, QR code check-ins, or mobile app integration.
