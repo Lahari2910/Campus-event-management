@@ -1,0 +1,21 @@
+
+<h2>All Events</h2>
+<table border="1" cellpadding="10">
+  <tr>
+    <th>Title</th><th>Date</th><th>Time</th><th>Venue</th><th>Actions</th>
+  </tr>
+  <% events.forEach(event => { %>
+    <tr>
+      <td><%= event.title %></td>
+      <td><%= event.date.toISOString().split('T')[0] %></td>
+      <td><%= event.time %></td>
+      <td><%= event.venue %></td>
+      <td>
+        <a href="/admin/events/edit/<%= event.id %>"style="margin-right: 10px;">Edit</a> | 
+        <form action="/admin/events/<%= event.id %>?_method=DELETE" method="POST" style="display:inline;">
+          <button type="submit">Delete</button>
+        </form>
+      </td>
+    </tr>
+  <% }) %>
+</table>

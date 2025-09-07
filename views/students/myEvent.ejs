@@ -1,0 +1,26 @@
+
+<h2>My Registered Events</h2>
+<a href="/student/events">All Events</a> | 
+<a href="/student/logout">Logout</a>
+<table border="1" cellpadding="10">
+  <tr>
+    <th>Title</th><th>Date</th><th>Time</th><th>Venue</th><th>Check-In</th>
+  </tr>
+  <% events.forEach(event => { %>
+    <tr>
+      <td><%= event.title %></td>
+      <td><%= event.date.toISOString().slice(0,10) %></td>
+      <td><%= event.time %></td>
+      <td><%= event.venue %></td>
+      <td>
+        <% if(event.check_in_status) { %>
+          Checked In
+        <% } else { %>
+          <form action="/student/events/checkin/<%= event.id %>" method="POST">
+            <button type="submit">Check In</button>
+          </form>
+        <% } %>
+      </td>
+    </tr>
+  <% }) %>
+</table>
